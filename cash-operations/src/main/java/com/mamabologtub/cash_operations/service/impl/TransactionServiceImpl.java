@@ -2,6 +2,8 @@ package com.mamabologtub.cash_operations.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.mamabologtub.cash_operations.dto.TransactionCreateDTO;
 import com.mamabologtub.cash_operations.dto.TransactionUpdateDTO;
 import com.mamabologtub.cash_operations.entity.Transaction;
@@ -13,6 +15,7 @@ import com.mamabologtub.cash_operations.service.TransactionService;
  * @Author Tshepo M Mahudu on May 16, 2026.
  */
 
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRespository transactionRepository;

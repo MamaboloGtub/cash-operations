@@ -15,10 +15,10 @@ public class TranactionDTO {
     private String transactionType;
     private LocalDateTime dateCreated;
 
-    public TransactionDTO() {
+    public TranactionDTO() {
     }
 
-    public TransactionDTO(Integer transactionId, BigDecimal amount, String description,
+    public TranactionDTO(Integer transactionId, BigDecimal amount, String description,
             String transactionType, LocalDateTime dateCreated) {
         this.transactionId = transactionId;
         this.amount = amount;

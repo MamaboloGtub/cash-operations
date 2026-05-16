@@ -21,6 +21,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TransactionId")
     private Integer transactionId;
 
     @Column(nullable = false, precision = 18, scale = 2)
@@ -29,10 +30,10 @@ public class Transaction {
     @Column(nullable = false, length = 255)
     private String description;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "TransactionType", nullable = false, length = 50)
     private String transactionType;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "DateCreated", nullable = false, updatable = false)
     private LocalDateTime dateCreated;
 
     @PrePersist
