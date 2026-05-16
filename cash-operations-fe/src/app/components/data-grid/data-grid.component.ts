@@ -27,7 +27,7 @@ import { FormDialogComponent, FormDialogData } from '../form-dialog/form-dialog.
 
           <ng-container matColumnDef="amount">
             <th mat-header-cell *matHeaderCellDef>Amount</th>
-            <td mat-cell *matCellDef="let transaction">{{ transaction.amount | currency }}</td>
+            <td mat-cell *matCellDef="let transaction">{{ transaction.amount | currency:'ZAR':'symbol-narrow' }}</td>
           </ng-container>
 
           <ng-container matColumnDef="description">
