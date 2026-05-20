@@ -43,6 +43,7 @@ CREATE TABLE Transactions (
     Amount          NUMERIC(18,2)  NOT NULL,
     Description     VARCHAR(255)   NOT NULL,
     TransactionType VARCHAR(50)    NOT NULL,
+    status          VARCHAR(50) NOT NULL,
     DateCreated     DATETIME2(7)   NOT NULL
 );
 GO
