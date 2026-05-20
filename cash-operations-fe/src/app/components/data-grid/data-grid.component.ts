@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { Transaction } from '../../models/transaction.model';
 import { TransactionService } from '../../services/transaction.service';
 import { FormDialogComponent, FormDialogData } from '../form-dialog/form-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-data-grid',
@@ -44,6 +45,10 @@ import { FormDialogComponent, FormDialogData } from '../form-dialog/form-dialog.
             <th mat-header-cell *matHeaderCellDef>Date Created</th>
             <td mat-cell *matCellDef="let transaction">{{ transaction.dateCreated | date:'medium' }}</td>
           </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let transaction">{{ transaction.status }}</td>
+          </ng-container>
 
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
@@ -66,6 +71,11 @@ import { FormDialogComponent, FormDialogData } from '../form-dialog/form-dialog.
             </td>
           </tr>
         </table>
+        <mat-paginator
+         [pageSize]="10"
+         [pageSizeOptions]="[2, 5, 10, 20, 50]"
+         showFirstLastButtons
+        ></mat-paginator>
       </div>
     </div>
   `,
@@ -118,17 +128,24 @@ import { FormDialogComponent, FormDialogData } from '../form-dialog/form-dialog.
     }
   `]
 })
-export class DataGridComponent implements OnInit {
+export class DataGridComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   displayedColumns: string[] = [
     'transactionId',
     'amount',
     'description',
     'transactionType',
+    'status',
     'dateCreated',
     'actions'
   ];
 
   dataSource = new MatTableDataSource<Transaction>([]);
+
+  ngAfterViewInit(): void {
+        this.dataSource.paginator = this.paginator;
+    }
 
   constructor(
     private transactionService: TransactionService,

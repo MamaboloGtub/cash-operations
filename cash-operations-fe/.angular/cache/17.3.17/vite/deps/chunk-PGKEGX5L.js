@@ -5344,6 +5344,7 @@ export {
   Breakpoints,
   addAriaReferencedId,
   removeAriaReferencedId,
+  AriaDescriber,
   ActiveDescendantKeyManager,
   InteractivityChecker,
   FocusTrapFactory,
@@ -5398,4 +5399,4 @@ export {
   MatRippleLoader,
   _MatInternalFormField
 };
-//# sourceMappingURL=chunk-4HHWGT5M.js.map
+//# sourceMappingURL=chunk-PGKEGX5L.js.map

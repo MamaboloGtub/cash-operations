@@ -26,13 +26,27 @@ public class TransactionUpdateDTO {
     @Pattern(regexp = "^(Deposit|Withdrawal|Transfer)$")
     private String transactionType;
 
+    @NotBlank
+    @Pattern(regexp = "^(Created|Completed)$")
+    private String status;
+
+
     public TransactionUpdateDTO() {
     }
 
-    public TransactionUpdateDTO(BigDecimal amount, String description, String transactionType) {
+    public TransactionUpdateDTO(BigDecimal amount, String description, String status, String transactionType) {
         this.amount = amount;
         this.description = description;
+        this.status = status;
         this.transactionType = transactionType;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public BigDecimal getAmount() {

@@ -33,6 +33,17 @@ public class Transaction {
     @Column(name = "transaction_type", nullable = false, length = 50)
     private String transactionType;
 
+    @Column(name = "status")
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Column(name = "date_created", nullable = false, updatable = false)
     private LocalDateTime dateCreated;
 

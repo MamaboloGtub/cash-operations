@@ -101,6 +101,7 @@ public class TransactionController {
                 transaction.getAmount(),
                 transaction.getDescription(),
                 transaction.getTransactionType(),
+                transaction.getStatus(),
                 transaction.getDateCreated()
                 );
     }

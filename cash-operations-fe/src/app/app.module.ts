@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { DataGridComponent } from './components/data-grid/data-grid.component';
 import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormDialogComponent } from './components/form-dialog/form-dialog.compon
     MatInputModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatIconModule
   ],

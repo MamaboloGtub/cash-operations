@@ -40,6 +40,17 @@ export interface FormDialogData {
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" placeholder="Enter status">
+            <mat-option value="Created">Created</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('status')?.hasError('required')">
+            Status is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Transaction Type</mat-label>
           <mat-select formControlName="transactionType" placeholder="Select type">
             <mat-option value="Deposit">Deposit</mat-option>
@@ -96,6 +107,10 @@ export class FormDialogComponent implements OnInit {
         this.data.mode === 'update' && this.data.transaction ? this.data.transaction.description : '',
         [Validators.required, Validators.maxLength(255)]
       ],
+      status: [
+        this.data.mode === 'update' && this.data.transaction ? this.data.transaction.status : '',
+        [Validators.required]
+      ],
       transactionType: [
         this.data.mode === 'update' && this.data.transaction ? this.data.transaction.transactionType : '',
         [Validators.required]
@@ -109,6 +124,7 @@ export class FormDialogComponent implements OnInit {
       this.dialogRef.close({
         amount: parseFloat(formValue.amount),
         description: formValue.description,
+        status: formValue.status,
         transactionType: formValue.transactionType
       });
     }

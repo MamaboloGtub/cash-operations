@@ -13,17 +13,22 @@ public class TranactionDTO {
     private BigDecimal amount;
     private String description;
     private String transactionType;
+    private String status;
+
+
+
     private LocalDateTime dateCreated;
 
     public TranactionDTO() {
     }
 
     public TranactionDTO(Integer transactionId, BigDecimal amount, String description,
-            String transactionType, LocalDateTime dateCreated) {
+            String transactionType, String status, LocalDateTime dateCreated) {
         this.transactionId = transactionId;
         this.amount = amount;
         this.description = description;
         this.transactionType = transactionType;
+        this.status = status;
         this.dateCreated = dateCreated;
     }
 
@@ -66,5 +71,12 @@ public class TranactionDTO {
     public void setDateCreated(LocalDateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
+    public String  getStatus() {
+        return  status;
+    }
+    public void setStauts(String status) {
+        this.status = status;
+    }
+
 
 }
